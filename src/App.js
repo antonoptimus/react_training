@@ -29,7 +29,7 @@ function App() {
 
   const sortedAndSearchedPosts = useMemo(() => {
     return sortedPosts.filter((post) =>
-      post.title.toLowerCase().includes(filter.query)
+      post.title.toLowerCase().includes(filter.query.toLowerCase())
     );
   }, [filter.query, sortedPosts]);
 
@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      <MyButton style={{ marginTop: 30 }} onClick={() => setModal(false)}>
+      <MyButton style={{ marginTop: 30 }} onClick={() => setModal(true)}>
         Создать пользователя
       </MyButton>
       <MyModal visible={modal} setVisible={setModal}>
@@ -56,7 +56,6 @@ function App() {
         remove={removePost}
         posts={sortedAndSearchedPosts}
         title="Посты про JS"
-        key={posts.id}
       />
     </div>
   );
