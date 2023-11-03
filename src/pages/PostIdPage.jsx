@@ -44,7 +44,9 @@ export default function PostIdPage() {
         <div>
           {comments.map((comment) => (
             <div>
-              <h5 style={{marginTop: 15}}>{comment.email}</h5>
+              <h5 key={comment.id} style={{ marginTop: 15 }}>
+                {comment.email}
+              </h5>
               <div>{comment.body}</div>
             </div>
           ))}
